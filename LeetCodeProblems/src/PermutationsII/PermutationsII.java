@@ -6,6 +6,7 @@
 package PermutationsII;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class PermutationsII {
     public List<List<Integer>> permuteUnique(int[] nums) {
         
         List<List<Integer>> result = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
         backtrack(nums,0,nums.length-1,result);
         return result;
     }
@@ -34,20 +36,20 @@ public class PermutationsII {
             return;
         }
         
-        ArrayList<Integer> alreadySeen = new ArrayList<Integer>();
+        
         for(int i=start;i<=end;i++)
         {
-            
-            if(!alreadySeen.contains(i))
+            if(start==i || nums[start]!=nums[i])
             {
                 swap(nums,start,i);
-            
                 backtrack(nums,start+1,end,res);
-            
                 swap(nums,start,i);
             }
-            
-            alreadySeen.add(i);
+             
+            if(start==i || nums[start]!=nums[i])
+            {
+                
+            }
         }
     }
     

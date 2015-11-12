@@ -62,14 +62,20 @@ import BinaryTreePaths.BinaryTreePaths;
 import BuildTreeFromInPostOrders.BuildTreeFromInPostOrders;
 import Candy.Candy;
 import ClimbingStairs.ClimbingStairs;
+import CombinationSum.CombinationSum;
+import CombinationSumII.CombinationSumII;
 import CourseSchedule.CourseSchedule;
+import CourseScheduleII.CourseScheduleII;
 import DecodeWays.DecodeWays;
 import GasStation.GasStation;
+import GroupAnagrams.GroupAnagrams;
+import HIndex.HIndex;
 import HouseRobber.HouseRobber;
 import HouseRobberII.HouseRobberII;
 import IntersectionOfLinkedLists.IntersectionOfLinkedLists;
 import IterativeInorderTraversal.IterativeInorderTraversal;
 import JumpGameII.JumpGameII;
+import LetterCombinations.LetterCombinations;
 import ListNode.ListNode;
 import LongestIncreasingSubsequence.LongestIncreasingSubsequence;
 import LongestValidParentheses.LongestValidParentheses;
@@ -81,10 +87,12 @@ import MergeIntervals.Interval;
 import MergeIntervals.MergeIntervals;
 import MinimumPathSum.MinimumPathSum;
 import NumberOfIslands.NumberOfIslands;
+import PalindromeLinkedList.PalindromeLinkedList;
 import PascalsTriangle.PascalsTriangle;
 import PathSum.PathSum;
 import PathSumII.PathSumII;
 import PerfectSquares.PerfectSquares;
+import PermutationSequence.PermutationSequence;
 import PermutationsII.PermutationsII;
 import RemoveDuplicatesII.RemoveDuplicatesII;
 import RemoveInteger.RemoveInteger;
@@ -935,21 +943,90 @@ public class MainRunner {
             System.out.println(i.start + "," + i.end);
         }*/
         
-        /*CourseSchedule cs = new CourseSchedule();
-        int numCourses = 4;
+        //CourseSchedule cs = new CourseSchedule();
+        /*int numCourses = 4;
         int[][]prerequisites = new int[4][];
         prerequisites[0] = new int[]{1,0};
         prerequisites[1] = new int[]{2,0};
         prerequisites[2] = new int[]{3,1};
         prerequisites[3] = new int[]{3,2};
+        //System.out.println(cs.findOrder(numCourses, prerequisites));
         
-        int[] res = cs.findOrder(numCourses, prerequisites);*/
+        CourseScheduleII cs2 = new CourseScheduleII();
+        for(int i : cs2.findOrder(numCourses, prerequisites))
+        {
+            System.out.print(i);
+        }*/
+        
+        
         
         /*MajorityElement me = new MajorityElement();
         int[] nums = new int[]{2,1,3,1,1};
         System.out.println(me.majorityElement(nums));*/
         
+        /*HIndex hindex = new HIndex();
+        int[] citations = new int[]{};
+        System.out.println(hindex.hIndex(citations));*/
         
+        /*PalindromeLinkedList plList = new PalindromeLinkedList();
+        ListNode listNode = new ListNode(1);
+        listNode.initialize(new int[]{2,3,3,1});
+        System.out.println(plList.isPalindrome(listNode));*/
+        
+        /*GroupAnagrams ga = new GroupAnagrams();
+        String[] strs = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
+        
+        for(List<String> stc : ga.groupAnagrams(strs))
+        {
+            for(String s : stc)
+            {
+                System.out.print(s + ",");
+            }
+            System.out.println("");
+        }
+        System.out.println("done");*/
+        
+        /*LetterCombinations lc = new LetterCombinations();
+        for(String s : lc.letterCombinations(""))
+        {
+            System.out.println(s);
+        }*/
+        
+        /*PermutationSequence ps = new PermutationSequence();
+        ps.getPermutation(5, 100);*/
+        
+        /*PermutationsII p2 = new PermutationsII();
+        int[] nums = new int[]{1,1,2,2};
+        List<List<Integer>> res = p2.permuteUnique(nums);
+        
+        for(List<Integer> l : res)
+        {
+            for(int i : l)
+            {
+                System.out.print(i);
+            }
+            System.out.println("");
+        }*/
+        
+        /*CombinationSum cs = new CombinationSum();
+        int[] candidates = new int[]{1,2};
+        int target = 4;
+        List<List<Integer>> result = cs.combinationSum(candidates, target);*/
+        CombinationSumII cs2 = new CombinationSumII();
+        int[] candidates = new int[]{1,1};
+        int target = 1;
+        List<List<Integer>> result = cs2.combinationSum2(candidates, target);
+        
+        for(List<Integer> l : result)
+        {
+            for(int i : l)
+            {
+                System.out.print(i + ",");
+            }
+            System.out.println("");
+        }
+                
+        System.out.println("done");
         String ste = "ste";
         try {
             System.in.read();

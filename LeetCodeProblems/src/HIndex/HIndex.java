@@ -13,10 +13,9 @@ public class HIndex {
     
     public int hIndex(int[] citations) {
         
-        int hindex = citations.length;
         int[] arr = new int[citations.length+1];
         int n = citations.length;
-        for(int i = citations.length-1;i>=0;i--)
+        for(int i = 0;i<n;i++)
         {
             if(citations[i]>=n)
             {
@@ -29,15 +28,15 @@ public class HIndex {
         }
         
         int sum = 0;
-        for(int j =arr.length;j>=0;j--)
+        for(int j =n;j>=0;j--)
         {
             sum += arr[j];
-            if(sum>arr[j])
+            if(sum>=j)
             {
                 return j;
             }
         }
-        return hindex;
+        return 0;
     }
     
 }

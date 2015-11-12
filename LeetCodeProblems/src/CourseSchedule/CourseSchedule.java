@@ -8,6 +8,7 @@ package CourseSchedule;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
@@ -18,37 +19,49 @@ import java.util.Set;
 public class CourseSchedule {
     
     
-    public int[] findOrder(int numCourses, int[][] prerequisites) 
+    public boolean findOrder(int numCourses, int[][] prerequisites) 
     { 
-        if (numCourses == 0) return null;
-        // Convert graph presentation from edges to indegree of adjacent list.
-        int indegree[] = new int[numCourses], order[] = new int[numCourses], idx = 0;
-        for (int i = 0; i < prerequisites.length; i++) // Indegree - how many prerequisites are needed.
-            indegree[prerequisites[i][0]]++;    
-
-        Queue<Integer> queue = new LinkedList<Integer>();
-        for (int i = 0; i < numCourses; i++) 
-            if (indegree[i] == 0) {
-                // Add the course to the order because it has no prerequisites.
-                order[idx++] = i;
-                queue.offer(i);
-            } 
-
-        // How many courses don't need prerequisites. 
-        while (!queue.isEmpty()) {
-            int prerequisite = queue.poll(); // Already finished this prerequisite course.
-            for (int i = 0; i < prerequisites.length; i++)  { 
-                if (prerequisites[i][1] == prerequisite) {
-                    indegree[prerequisites[i][0]]--; 
-                    if (indegree[prerequisites[i][0]] == 0) {
-                        // If indegree is zero, then add the course to the order.
-                        order[idx++] = prerequisites[i][0];
-                        queue.offer(prerequisites[i][0]);
-                    }
-                } 
+        
+        if (numCourses == 0 || prerequisites.length == 0) 
+        {
+            return true;
+        }
+        
+        int[] indegree = new int[numCourses];
+        Queue<Integer> tracking = new LinkedList<Integer>();
+        int totalCount = 0;
+        for(int i=0;i<prerequisites.length;i++)
+        {
+            indegree[prerequisites[i][0]]++;
+        }
+        
+        for(int j=0;j<indegree.length;j++)
+        {
+            if(indegree[j]==0)
+            {
+                tracking.add(j);
             }
-        }    
-        if (idx != numCourses) return new int[0];      
-        return order;    
+        }
+        
+        totalCount = tracking.size();
+        while(!tracking.isEmpty())
+        {
+            int prereq = tracking.remove();
+            for(int k=0;k<prerequisites.length;k++)
+            {
+                if(prerequisites[k][1]== prereq)
+                {
+                    indegree[prerequisites[k][0]]--;
+                    if(indegree[prerequisites[k][0]]==0)
+                    {
+                        ++totalCount;
+                        tracking.add(prerequisites[k][0]);
+                    }
+                }
+                
+            }
+        }
+        
+        return totalCount == numCourses;
     }
 }
