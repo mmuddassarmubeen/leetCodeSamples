@@ -36,19 +36,13 @@ public class PermutationsII {
             return;
         }
         
-        
         for(int i=start;i<=end;i++)
         {
-            if(start==i || nums[start]!=nums[i])
+            if(start==i || (nums[i]!=nums[i-1] && nums[i]!=nums[start]))
             {
                 swap(nums,start,i);
                 backtrack(nums,start+1,end,res);
                 swap(nums,start,i);
-            }
-             
-            if(start==i || nums[start]!=nums[i])
-            {
-                
             }
         }
     }

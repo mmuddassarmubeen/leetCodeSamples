@@ -56,6 +56,7 @@ import SortLinkedList.ListNode;
 import SortLinkedList.SortLinkedList;*/
 import BTStringPermute.BTStringPermute;
 import BacktrackStringPermutation.BacktrackStringPermutation;
+import BasicCalculator.BasicCalculator;
 import BestTimeBuySell.BestTimeBuySell;
 import BestTimeBuySell2.BestTimeBuySell2;
 import BinaryTreePaths.BinaryTreePaths;
@@ -72,6 +73,7 @@ import GroupAnagrams.GroupAnagrams;
 import HIndex.HIndex;
 import HouseRobber.HouseRobber;
 import HouseRobberII.HouseRobberII;
+import InterleavingString.InterleavingString;
 import IntersectionOfLinkedLists.IntersectionOfLinkedLists;
 import IterativeInorderTraversal.IterativeInorderTraversal;
 import JumpGameII.JumpGameII;
@@ -101,6 +103,7 @@ import ReverseInteger.ReverseInteger;
 import ReverseLinkedListBetween.ReverseLinkedListBetween;
 import RotateArray.RotateArray;
 import SetMatrixZeroes.SetMatrixZeroes;
+import SortColors.SortColors;
 import SortedArrayToBST.SortedArrayToBST;
 import SortedListToBST.SortedListToBST;
 import Subsets.Subsets;
@@ -1012,7 +1015,7 @@ public class MainRunner {
         int[] candidates = new int[]{1,2};
         int target = 4;
         List<List<Integer>> result = cs.combinationSum(candidates, target);*/
-        CombinationSumII cs2 = new CombinationSumII();
+        /*CombinationSumII cs2 = new CombinationSumII();
         int[] candidates = new int[]{1,1};
         int target = 1;
         List<List<Integer>> result = cs2.combinationSum2(candidates, target);
@@ -1024,8 +1027,43 @@ public class MainRunner {
                 System.out.print(i + ",");
             }
             System.out.println("");
-        }
-                
+        }*/
+        
+        //InterleavingString intString = new InterleavingString();
+        //System.out.println(intString.isInterleave("aabc", "abad", "aabadabc"));
+        
+        /*PermutationsII pm2 = new PermutationsII();
+        int[] nums = new int[]{0,1,0,0,9};
+        List<List<Integer>> result = pm2.permuteUnique(nums);*/
+        
+        
+        /*Subsets sts = new Subsets();
+        int[] nums = new int[]{};
+        List<List<Integer>> result = sts.subsets(nums);
+        
+        System.out.println(result.size());
+        for(List<Integer> l : result)
+        {
+            for(int i : l)
+            {
+                System.out.print(i + ",");
+            }
+            System.out.println("");
+        }*/
+        
+        /*SortColors sortColors = new SortColors();
+        int[] nums = new int[]{2,1,1,1,1,1};
+        sortColors.sortColors(nums);
+        
+        for(int i : nums)
+        {
+            System.out.print(i);
+        }*/
+        
+        BasicCalculator basicCalc = new BasicCalculator();
+        String input = " 2-1 + 2 ";
+        System.out.println(basicCalc.calculate(input));
+        
         System.out.println("done");
         String ste = "ste";
         try {

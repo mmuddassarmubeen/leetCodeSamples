@@ -11,38 +11,43 @@ package InterleavingString;
  */
 public class InterleavingString {
     
-    public boolean isInterleave(String s1, String s2, String s3) 
-    {
-        int l1 = s1.length();
-        int l2 = s2.length();
-        int l3 = s3.length();
-        if(l3 == 1)
-        {
-            if(l2 == 1)
-            {
-                return s3.equals(s2);
-            }
-            else if(l1 == 1)
-            {
-                return s3.equals(s1);
-            }
-            
-        }
-        if(l1>0 && l2>0)
-        {
-            boolean val = isInterleave(s1.substring(1,l1),s2,s3.substring(1,l3)) || isInterleave(s1,s2.substring(1,l2),s3.substring(1,l3));
-            return val;
-        }
-        else if(l1>0)
-        {
-            boolean val =  isInterleave(s1.substring(1,l1),s2,s3.substring(1,l3));
-            return val;
-        }
-        else
-        {
-            boolean val = isInterleave(s1,s2.substring(1,l2),s3.substring(1,l3));
-            return val;
-        }
-        
-    }
+    
+//    public boolean isInterleave(String s1, String s2, String s3) 
+//    {
+//        
+//        if(s3.length()==0 && s2.length()==0 && s1.length() == 0)
+//        {
+//            return true;
+//        }
+//        boolean[][] result = new boolean[s1.length()-1][s2.length()-1];
+//        
+//        for(int i = 0;i<s1.length()-1;i++)
+//        {
+//        
+//        }
+//        
+//        for(int j = 0;j<s2.length()-1;j++)
+//        {
+//        
+//        }
+//        
+//        if(i>=0 && j>=0 && k>=0 && s3.substring(k,k+1).equals(s1.substring(i, i+1)) && s3.substring(k,k+1).equals(s2.substring(j, j+1)))
+//        {
+//            return isInterleave(s1.substring(0,i), s2, s3.substring(0,k)) ||
+//                    isInterleave(s1, s2.substring(0,j), s3.substring(0,k));
+//        }
+//        else if(i>=0 && k>=0 && s3.substring(k,k+1).equals(s1.substring(i, i+1)))
+//        {
+//            return isInterleave(s1.substring(0,i), s2, s3.substring(0,k));
+//        }
+//        else if(j>=0 && k>=0 && s3.substring(k,k+1).equals(s2.substring(j, j+1)))
+//        {
+//            return isInterleave(s1, s2.substring(0,j), s3.substring(0,k));
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//        
+//    }
 }

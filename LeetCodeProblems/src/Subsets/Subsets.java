@@ -6,6 +6,7 @@
 package Subsets;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,22 +17,33 @@ public class Subsets {
     
     public List<List<Integer>> subsets(int[] nums) {
         
-        List<List<Integer>> results = new ArrayList<List<Integer>>();
-        //backtrack(nums, results);
-        return results;
+        Arrays.sort(nums);
+        return backtrack(nums, nums.length-1);
     }
     
-    private void backtrack(int[] nums, List<List<Integer>> res, int start, int end)
+    private List<List<Integer>> backtrack(int[] nums, int start)
     {
-        if(start>end)
+        if(start<0)
         {
-            return;
+            List<List<Integer>> empty = new ArrayList<List<Integer>>();
+            empty.add(new ArrayList<Integer>());
+            return empty;
         }
-        
-        for(int i=start;i<end;i++)
+        List<List<Integer>> basecase = null;
+        for(int i=start;i>=0;i--)
         {
+            basecase = backtrack(nums,start-1);
+            List<List<Integer>> included = new ArrayList<List<Integer>>();
+            for(List<Integer> l : basecase)
+            {
+                ArrayList<Integer> newList = new ArrayList<Integer>(l);
+                newList.add(nums[i]);
+                included.add(newList);
+            }
+            basecase.addAll(included);
+            return basecase;
             
         }
-        
+        return basecase;
     }
 }
